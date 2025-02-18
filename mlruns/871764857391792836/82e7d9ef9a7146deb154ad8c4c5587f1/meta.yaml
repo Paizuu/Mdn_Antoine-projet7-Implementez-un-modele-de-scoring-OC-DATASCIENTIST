@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/871764857391792836/82e7d9ef9a7146deb154ad8c4c5587f1/artifacts
+end_time: 1738327189849
+entry_point_name: ''
+experiment_id: '871764857391792836'
+lifecycle_stage: active
+run_id: 82e7d9ef9a7146deb154ad8c4c5587f1
+run_name: LogisticRegression_Baseline
+run_uuid: 82e7d9ef9a7146deb154ad8c4c5587f1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738327184648
+status: 3
+tags: []
+user_id: antoi

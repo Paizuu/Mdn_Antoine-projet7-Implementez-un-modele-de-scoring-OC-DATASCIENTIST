@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/592004699819887619/4cd12c38aa824cb894b28efba8ba708d/artifacts
+end_time: 1739526705094
+entry_point_name: ''
+experiment_id: '592004699819887619'
+lifecycle_stage: active
+run_id: 4cd12c38aa824cb894b28efba8ba708d
+run_name: RandomForest_FineTuned
+run_uuid: 4cd12c38aa824cb894b28efba8ba708d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739526699607
+status: 3
+tags: []
+user_id: antoi

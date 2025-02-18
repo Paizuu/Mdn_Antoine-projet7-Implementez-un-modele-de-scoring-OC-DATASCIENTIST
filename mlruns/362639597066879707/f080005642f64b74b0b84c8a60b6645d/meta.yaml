@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/362639597066879707/f080005642f64b74b0b84c8a60b6645d/artifacts
+end_time: 1739724193773
+entry_point_name: ''
+experiment_id: '362639597066879707'
+lifecycle_stage: active
+run_id: f080005642f64b74b0b84c8a60b6645d
+run_name: DummyClassifier_Baseline
+run_uuid: f080005642f64b74b0b84c8a60b6645d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739724182608
+status: 3
+tags: []
+user_id: antoi

@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/663294526166078504
+creation_time: 1738326408720
+experiment_id: '663294526166078504'
+last_update_time: 1738326408720
+lifecycle_stage: active
+name: LogisticRegression_WithSmote

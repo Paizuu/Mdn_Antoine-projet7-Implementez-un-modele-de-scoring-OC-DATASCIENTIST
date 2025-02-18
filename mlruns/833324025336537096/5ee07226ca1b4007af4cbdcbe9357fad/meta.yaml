@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/833324025336537096/5ee07226ca1b4007af4cbdcbe9357fad/artifacts
+end_time: 1738519457541
+entry_point_name: ''
+experiment_id: '833324025336537096'
+lifecycle_stage: active
+run_id: 5ee07226ca1b4007af4cbdcbe9357fad
+run_name: GradientBoosting_FineTuned
+run_uuid: 5ee07226ca1b4007af4cbdcbe9357fad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738519426154
+status: 3
+tags: []
+user_id: antoi
