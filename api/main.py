@@ -2,7 +2,7 @@
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 import pandas as pd
-from api.model import load_model, predict 
+from api.model import load_model, predict, predict_class
 from api.schemas import ClientData  
 from typing import Dict, Any
 from fastapi import Body
