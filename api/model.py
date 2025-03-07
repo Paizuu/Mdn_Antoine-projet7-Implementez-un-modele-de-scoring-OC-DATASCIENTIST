@@ -7,7 +7,7 @@ import re
 
 # Charger le modèle MLflow
 def load_model():
-    model_uri = "mlruns/592004699819887619/96799a278c9247d6a06cd92a6c8baddc/artifacts/model"
+    model_uri = "mlruns/592004699819887619/31a98f93ed8d4201bf1e05164b15b503/artifacts/model"
     model = mlflow.sklearn.load_model(model_uri)
     return model
 
