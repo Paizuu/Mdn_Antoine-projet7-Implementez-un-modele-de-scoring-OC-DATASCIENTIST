@@ -36,6 +36,7 @@ dynaconf==3.2.6
 evidently==0.4.40
 executing==2.1.0
 Faker==33.0.0
+fastapi==0.115.10
 fastjsonschema==2.20.0
 filelock==3.16.1
 Flask==3.1.0
@@ -176,6 +177,7 @@ soupsieve==2.6
 SQLAlchemy==2.0.36
 sqlparse==0.5.2
 stack-data==0.6.3
+starlette==0.46.0
 statsmodels==0.14.4
 streamlit==1.40.2
 tbb==2022.0.0

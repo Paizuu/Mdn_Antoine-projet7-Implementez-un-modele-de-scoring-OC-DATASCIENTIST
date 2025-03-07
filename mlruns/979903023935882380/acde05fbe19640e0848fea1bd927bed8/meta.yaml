@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet 7/mlruns/979903023935882380/acde05fbe19640e0848fea1bd927bed8/artifacts
+end_time: 1740760174318
+entry_point_name: ''
+experiment_id: '979903023935882380'
+lifecycle_stage: active
+run_id: acde05fbe19640e0848fea1bd927bed8
+run_name: RandomForest_Baseline
+run_uuid: acde05fbe19640e0848fea1bd927bed8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740760169302
+status: 3
+tags: []
+user_id: antoi
