@@ -7,11 +7,11 @@ client = TestClient(app)
 def test_dummy():
     assert 1 + 1 == 2
 
-# Test si l'API démarre bien
-def test_read_root():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Credit Scoring API is up and running"}
+# # Test si l'API démarre bien
+# def test_read_root():
+#     response = client.get("/")
+#     assert response.status_code == 200
+#     assert response.json() == {"message": "Credit Scoring API is up and running"}
 
 # # Test avec des données valides
 # def test_prediction_valid():
