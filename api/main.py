@@ -24,7 +24,10 @@ async def get_prediction(data: Any = Body(...)):
     # Faire la prédiction
     try:
         prediction = predict(model, data)
-        return {"score": prediction}
+        return {
+    "Prédiction de la TARGET 0": prediction[0, 0],
+    "Prédiction de la TARGET 1": prediction[0, 1]
+}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

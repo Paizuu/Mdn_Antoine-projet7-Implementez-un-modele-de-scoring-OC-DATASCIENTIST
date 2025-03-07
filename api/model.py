@@ -68,11 +68,11 @@ def predict(model, data):
     print("data_df",data_df.columns.tolist() )
 
     # Prédiction avec le modèle
-    prediction = model.predict_proba(data_df)[:, 1]
+    prediction = model.predict_proba(data_df)
 
     print("post predict")
 
-    return prediction[0]
+    return prediction
 
 # Charger le modèle au démarrage
 model = load_model()
