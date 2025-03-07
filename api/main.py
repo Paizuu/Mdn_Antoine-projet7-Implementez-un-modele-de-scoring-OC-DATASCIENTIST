@@ -25,12 +25,12 @@ async def get_prediction(data: Any = Body(...)):
     try:
         prediction = predict(model, data)
         class_predite = predict_class(model, data)
-    return {
-        "Classe prédite pour ces données": int(class_predite[0]),
-        "Prédiction de la TARGET 0": float(prediction[0, 0]),
-        "Prédiction de la TARGET 1": float(prediction[0, 1])
-    }
-
+        return {
+            "Classe prédite pour ces données": int(class_predite[0]),
+            "Prédiction de la TARGET 0": float(prediction[0, 0]),
+            "Prédiction de la TARGET 1": float(prediction[0, 1])
+        }
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
