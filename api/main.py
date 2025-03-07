@@ -24,7 +24,9 @@ async def get_prediction(data: Any = Body(...)):
     # Faire la prédiction
     try:
         prediction = predict(model, data)
+        class_predite = predict_class(model, data)
         return {
+    "Classe prédite pour ces données": class_predite,
     "Prédiction de la TARGET 0": prediction[0, 0],
     "Prédiction de la TARGET 1": prediction[0, 1]
 }
