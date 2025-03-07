@@ -28,11 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # RUN DE Vérifiaction des test trouvé
-      - name: Check Pytest Collection
-        run: pytest --collect-only
-
-      # 3. Exécution des tests unitaires
+      # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
       - name: Run unit tests
         run: |
           pytest ./tests --maxfail=1 --disable-warnings -v
