@@ -162,7 +162,7 @@ rich-click==1.8.4
 rpds-py==0.21.0
 rsa==4.9
 scikit-learn==1.6.0
-scipy==1.14.1
+scipy==1.13.1
 seaborn==0.13.2
 Send2Trash==1.8.3
 shap==0.46.0
