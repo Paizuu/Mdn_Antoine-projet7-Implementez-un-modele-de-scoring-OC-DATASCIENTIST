@@ -36,6 +36,12 @@ jobs:
       - name: Run unit tests
         run: |
           pytest ./tests --maxfail=1 --disable-warnings -v
+     
+     
+      - name: Afficher les logs après test
+        run: cat pytest.log || true
+
+      
 
   deploy:
     runs-on: ubuntu-latest
