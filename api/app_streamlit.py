@@ -4,7 +4,7 @@ import json
 import os
 
 # Définition de l'URL de l'API FastAPI déployée sur Render
-API_URL = "https://mdn-antoine-projet7-implementez-un.onrender.com/docs#/default/get_prediction_predict__post"
+API_URL = "https://mdn-antoine-projet7-implementez-un.onrender.com/predict/"
 
 st.title("🔍 Interface de Prédiction - Crédit Scoring")
 
