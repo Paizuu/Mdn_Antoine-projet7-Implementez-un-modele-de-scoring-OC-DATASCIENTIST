@@ -7,7 +7,7 @@ import re
 
 # Charger le modèle MLflow
 def load_model():
-    model_uri = "mlruns/592004699819887619/31a98f93ed8d4201bf1e05164b15b503/artifacts/model"
+    model_uri = "mlruns/592004699819887619/037c7248072b462db1b3b5ef509ced6e/artifacts/model"
     model = mlflow.sklearn.load_model(model_uri)
     return model
 
@@ -50,9 +50,9 @@ def predict(model, data):
 
 def predict_class(model, data):
 
-    data_df = encode_categories(data)
+    data_df_class = encode_categories(data)
 
-    class_predite = model.predict(data_df)
+    class_predite = model.predict(data_df_class)
 
     print("post predict class")
 
