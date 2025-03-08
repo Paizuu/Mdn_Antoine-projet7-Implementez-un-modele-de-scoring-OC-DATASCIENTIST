@@ -42,6 +42,7 @@ GROUPE_SELECTIONNABLE = {
     "EMERGENCYSTATE_MODE": ["EMERGENCYSTATE_MODE_No","EMERGENCYSTATE_MODE_Yes"],
 }
 
+
 # Définition des champs calculés
 def calcul_champs(data):
     data["CREDIT_INCOME_PERCENT"] = data["AMT_CREDIT"] / data["AMT_INCOME_TOTAL"]
@@ -69,36 +70,36 @@ def on_change(field, group):
     if st.session_state.form_values[field] == 1:
         update_groups(field, group)
 
-# Affichage des groupes
-for group_name, fields in GROUPE_SELECTIONNABLE.items():
-    st.subheader(group_name)
-    for field in fields:
-        st.session_state.form_values[field] = st.radio(
-            f"{field}",
-            [0, 1],
-            index=int(data[field]),
-            key=field,
-            on_change=on_change,
-            args=(field, fields),
-        )
 
 # Affichage des champs classiques
 st.subheader("Autres informations")
 for field in data.keys():
     if field not in sum(GROUPE_SELECTIONNABLE.values(), []):
-        if field in ["CREDIT_INCOME_PERCENT", "ANNUITY_INCOME_PERCENT","CREDIT_TERM","DAYS_EMPLOYED_PERCENT"]:
-            st.write(f"{field}: {data[field]:.4f}") # Bloque la modification car champs calculés
+        if field in ["CREDIT_INCOME_PERCENT", "ANNUITY_INCOME_PERCENT", "CREDIT_TERM", "DAYS_EMPLOYED_PERCENT"]:
+            st.write(f"{field}: {data[field]:.4f}")  # Bloque la modification car champs calculés
         else:
             st.session_state.form_values[field] = st.number_input(
                 field, value=data[field]
             )
+
+# Affichage des groupes (features one hot encodés)
+for group_name, fields in GROUPE_SELECTIONNABLE.items():
+    st.subheader(group_name)
+    selected = None
+    for field in fields:
+        if st.session_state.form_values[field] == 1:
+            selected = field
+    new_selection = st.radio(
+        f"{group_name}", fields, index=fields.index(selected) if selected else 0
+    )
+    update_groups(new_selection, fields)
+    st.session_state.form_values[new_selection] = 1
 
 # Recalcul des champs calculés
 st.session_state.form_values = calcul_champs(st.session_state.form_values)
 
 st.write("### Données finales")
 st.write(st.session_state.form_values)
-
 
 # # Bouton pour soumettre les données à l’API
 if st.button("Prédire"):
