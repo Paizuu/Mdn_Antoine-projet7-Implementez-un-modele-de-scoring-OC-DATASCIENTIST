@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11'
+          python-version: '3.9'
       
       - name: Install dependencies
         run: |
@@ -49,6 +49,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -63,22 +64,14 @@ jobs:
             https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_API_KEY
 
   deploy-streamlit:
-    runs-on: ubuntu-latest  # 🔥 Indentation corrigée ici
-    needs: deploy  # 🔥 Indentation correcte
+    runs-on: ubuntu-latest 
+    needs: deploy  
+    
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
+      # Déploiement de streamlit sur Render via GitHub Actions
       - name: Deploy Streamlit to Render
         env:
           RENDER_SERVICE_ID: ${{ secrets.RENDER_STREAMLIT_SERVICE_ID }}
