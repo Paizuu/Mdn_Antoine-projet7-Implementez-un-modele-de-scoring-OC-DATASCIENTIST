@@ -62,73 +62,9 @@ jobs:
           curl -X POST \
             https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_API_KEY
 
-name: Build and Deploy API
-
-on:
-  push:
-    branches:
-      - main  # Déclenchement du workflow sur chaque push sur la branche principale
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1. Récupération du code source
-      - name: Checkout source code
-        uses: actions/checkout@v2
-
-      # 2. Installation de Python et des dépendances
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
-      
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      # 2.5 reset du dossier path (marche en local)
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
-      
-      - name: Install Git LFS
-        run: git lfs install
-        
-      - name: Pull Git LFS files
-        run: git lfs pull
-
-      # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
-      - name: Run unit tests
-        run: |
-          pytest ./tests --maxfail=1 --disable-warnings -v
-     
-      - name: Afficher les logs après test
-        run: cat pytest.log || true
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-
-      # Déploiement sur Render via GitHub Actions
-      - name: Deploy to Render
-        env:
-          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-        run: |
-          curl -X POST \
-            https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_API_KEY
-
   deploy-streamlit:
     runs-on: ubuntu-latest 
-    needs: deploy
+    needs: deploy 
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -150,4 +86,3 @@ jobs:
         run: |
           curl -X POST \
             https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_STREAMLIT_API_KEY
-
