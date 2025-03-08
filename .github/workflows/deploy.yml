@@ -62,7 +62,7 @@ jobs:
           curl -X POST \
             https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_API_KEY
 
-  build-deploy-streamlit:
+  deploy-streamlit:
   runs-on: ubuntu-latest
   needs: deploy 
   steps:
