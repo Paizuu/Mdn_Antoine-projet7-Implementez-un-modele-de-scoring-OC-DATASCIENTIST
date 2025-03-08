@@ -35,8 +35,7 @@ jobs:
       # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
       - name: Run unit tests
         run: |
-          pytest ./tests --maxfail=1 --disable-warnings -v
-     
+          pytest ./tests --maxfail=6 --disable-warnings -v
      
       - name: Afficher les logs après test
         run: cat pytest.log || true
