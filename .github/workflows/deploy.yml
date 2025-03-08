@@ -31,6 +31,12 @@ jobs:
       # 2.5 reset du dossier path (marche en local)
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
+      
+      - name: Install Git LFS
+        run: git lfs install
+        
+      - name: Pull Git LFS files
+        run: git lfs pull
 
       # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
       - name: Run unit tests
