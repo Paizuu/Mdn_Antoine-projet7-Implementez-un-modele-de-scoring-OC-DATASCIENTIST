@@ -11,6 +11,7 @@ APP_PATH = "api/app_streamlit.py"
 def test_app_loads():
     """Test que l'application Streamlit se charge sans erreur."""
     at = AppTest.from_file(APP_PATH)
+    at.run()
     assert at
 
 def test_initial_values():
@@ -24,7 +25,7 @@ def test_user_input():
     """Test la modification d'une valeur et sa mise à jour dans session_state."""
     at = AppTest.from_file(APP_PATH)
     at.run()
-    at.text_input("AMT_INCOME_TOTAL", "50000.0").run()
+    at.text_input("AMT_INCOME_TOTAL").set_value("50000.0").run()
     assert at.session_state.form_values["AMT_INCOME_TOTAL"] == 50000.0
 
 @patch("requests.post")
@@ -35,7 +36,7 @@ def test_api_call(mock_post):
     
     at = AppTest.from_file(APP_PATH)
     at.run()
-    at.button("Prédire").run()
+    at.button(label="Prédire").click().run()
     
     mock_post.assert_called_once()
     assert "Prédiction réussie" in at.html
