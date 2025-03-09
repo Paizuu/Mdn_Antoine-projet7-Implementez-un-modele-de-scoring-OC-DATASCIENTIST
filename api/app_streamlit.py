@@ -79,7 +79,7 @@ for field in data.keys():
             st.write(f"{field}: {data[field]:.4f}")  # Bloque la modification car champs calculés
         else:
             st.session_state.form_values[field] = st.number_input(
-                field, value=data[field]
+                field, value=data[field], key=field
             )
 
 # Affichage des groupes (features one hot encodés)
@@ -102,7 +102,7 @@ st.write("### Données finales")
 st.write(st.session_state.form_values)
 
 # # Bouton pour soumettre les données à l’API
-if st.button("Prédire"):
+if st.button("Prédire", key="predict_button"):
     response = requests.post(API_URL, json=st.session_state.form_values)
 
     if response.status_code == 200:
