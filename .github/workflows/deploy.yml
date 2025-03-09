@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      # 2.5 reset du dossier path (marche en local)
+      # 2.5 reset du dossier path , cmd local: export PYTHONPATH=$(pwd):$PYTHONPATH
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
       
@@ -38,10 +38,10 @@ jobs:
       - name: Pull Git LFS files
         run: git lfs pull
 
-      # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
+      # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1) --disable-warnings
       - name: Run unit tests
         run: |
-          pytest ./tests --maxfail=10 --disable-warnings -v
+          pytest ./tests --maxfail=10 -v
      
       - name: Afficher les logs après test
         run: cat pytest.log || true
