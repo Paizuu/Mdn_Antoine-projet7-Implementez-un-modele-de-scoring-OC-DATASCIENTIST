@@ -41,7 +41,7 @@ jobs:
       # 3. Exécution des tests unitaires (param pour limiter les fail : --maxfail=1)
       - name: Run unit tests
         run: |
-          pytest ./tests --maxfail=1 --disable-warnings -v
+          pytest ./tests --maxfail=10 --disable-warnings -v
      
       - name: Afficher les logs après test
         run: cat pytest.log || true
@@ -66,8 +66,8 @@ jobs:
       # Déploiement de streamlit sur Render via GitHub Actions
       - name: Deploy Streamlit to Render
         env:
-          RENDER_SERVICE_ID: ${{ secrets.RENDER_STREAMLIT_SERVICE_ID }}
-          RENDER_API_KEY: ${{ secrets.RENDER_STREAMLIT_API_KEY }}
+          RENDER_STREAMLIT_SERVICE_ID: ${{ secrets.RENDER_STREAMLIT_SERVICE_ID }}
+          RENDER_STREAMLIT_API_KEY: ${{ secrets.RENDER_STREAMLIT_API_KEY }}
         run: |
           curl -X POST \
-            https://api.render.com/deploy/srv-cv67f5in91rc73bckecg?key=UhfcK6hhtcg
+            https://api.render.com/deploy/srv-$RENDER_STREAMLIT_SERVICE_ID?key=$RENDER_STREAMLIT_API_KEY
