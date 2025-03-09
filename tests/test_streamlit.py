@@ -33,12 +33,16 @@ def test_user_input():
 def test_api_call(mock_post):
     """Test l'envoi d'une requête API et la gestion de la réponse."""
     mock_post.return_value.status_code = 200
-    mock_post.return_value.json.return_value = {"prediction": "Approved"}
+    mock_post.return_value.json.return_value = {
+        "Classe prédite pour ces données": 1,
+        "Prédiction de la TARGET 0": 0.35,
+        "Prédiction de la TARGET 1": 0.65
+    }
     
     at = AppTest.from_file(APP_PATH)
     at.run()
     at.button(key="predict_button").click().run()
     
     mock_post.assert_called_once()
-    assert "Prédiction réussie" in at.html
-    assert "Approved" in at.html
+    assert any("Prédiction réussie" in str(msg) for msg in at.get("st.success"))
+    assert "Classe prédite pour ces données" in json.dumps(at.get("st.json"))
