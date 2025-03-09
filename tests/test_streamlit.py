@@ -44,5 +44,12 @@ def test_api_call(mock_post):
     at.button(key="predict_button").click().run()
     
     mock_post.assert_called_once()
-    assert any("Prédiction réussie" in str(msg) for msg in at.get("st.success"))
-    assert "Classe prédite pour ces données" in json.dumps(at.get("st.json"))
+    
+    # Vérification améliorée du message de succes
+    success_messages = [str(msg) for msg in at.get("st.success")]
+    assert any("Prédiction réussie" in msg for msg in success_messages), f"Message de succès non trouvé. Messages: {success_messages}"
+    
+    # Vérification de l'affichage JSON
+    json_displayed = json.dumps(at.get("st.json"))
+    assert "Classe prédite pour ces données" in json_displayed, f"JSON non trouvé: {json_displayed}"
+
