@@ -7,33 +7,16 @@ import re
 
 # Charger le modèle MLflow
 def load_model():
-    model_uri = "mlruns/592004699819887619/037c7248072b462db1b3b5ef509ced6e/artifacts/model"
+    model_uri = "mlruns/592004699819887619/0f136d13601d4180b6c9e002c5b6ed94/artifacts/model"
     model = mlflow.sklearn.load_model(model_uri)
     return model
 
 def encode_categories(data):
     # Charger les données de train pour avoir les mêmes colonnes
     train_data = pd.read_csv("train_data.csv")
-
-    # # Vérification des colonnes disponibles
-    # missing_cols = (set(train_data.columns)) - set(data.keys())
-    # col_not_in = (set(data.keys())) - set(train_data.columns)
-
-    # print(f"Train Columns: {train_data.columns}")
-    # print(f"Data DF Columns: {data.keys()}")
-
-    # if missing_cols:
-    #     print(f"⚠️ Colonnes manquantes dans les données reçues par l'API : {missing_cols}")
-    #     for col in missing_cols:
-    #         data[col] = 0  # Ajouter les colonnes manquantes avec des valeurs par défaut (0)
-    
-    # if col_not_in:
-    #     print(f"⚠️ Colonnes en trop qu'on kick : {col_not_in}")
-    #     for col in col_not_in:
-    #         del data[col] #Delete les colonnes non presente dans le train data
-
+    # Passer les données en Dataframe
     data_df = pd.DataFrame([data])
-
+    # Order sur l'ordre d'origine
     data_df = data_df[train_data.columns]
 
     return data_df

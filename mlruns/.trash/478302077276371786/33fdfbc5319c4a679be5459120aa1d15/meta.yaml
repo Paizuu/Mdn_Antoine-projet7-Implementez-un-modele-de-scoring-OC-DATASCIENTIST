@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/antoi/Desktop/OpenClassrooms/Projet%207/mlruns/478302077276371786/33fdfbc5319c4a679be5459120aa1d15/artifacts
+deleted_time: 1742739576248
+end_time: 1741943537621
+entry_point_name: ''
+experiment_id: '478302077276371786'
+lifecycle_stage: deleted
+run_id: 33fdfbc5319c4a679be5459120aa1d15
+run_name: indecisive-foal-50
+run_uuid: 33fdfbc5319c4a679be5459120aa1d15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741943500315
+status: 4
+tags: []
+user_id: antoi
